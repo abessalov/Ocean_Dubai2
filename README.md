@@ -33,7 +33,7 @@ This repository contains a comprehensive machine learning system for predicting 
 - **Data Processing**: Handles millions of transactions with advanced cleaning and standardization
 - **External Data Integration**: Incorporates CPI, GDP, population, tourism, and 389 World Bank indicators
 - **Machine Learning**: Separate XGBoost models per property type for optimal accuracy
-- **Performance**: MAPE ranges from 9.73% (Land rentals) to 45.04% (Land sales)
+- **Performance**: Best MAPE of 9.86% (Land rentals), most types achieve 10-25% MAPE
 - **Business Value**: Identifies undervalued properties for investment opportunities
 
 ## Model Performance
