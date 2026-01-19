@@ -430,6 +430,8 @@ def integrate_external_data(real_estate_df, external_df, indicator_type):
     Returns:
         DataFrame: Merged dataframe with lagged external indicators
     """
+    import pandas as pd
+    
     shift_config = {
         'CPI': {'freq': 'monthly', 'shift': 1},      # 1-month lag
         'Currency': {'freq': 'monthly', 'shift': 1},  # 1-month lag
@@ -483,6 +485,11 @@ def tune_xgboost_params(X_train, y_train, property_type):
     Returns:
         dict: Best hyperparameters
     """
+    from sklearn.model_selection import ParameterGrid, TimeSeriesSplit
+    from sklearn.metrics import mean_absolute_error
+    import xgboost as xgb
+    import numpy as np
+    
     param_grid = {
         'max_depth': [4, 6, 8],
         'learning_rate': [0.01, 0.05, 0.1],
@@ -645,9 +652,9 @@ print(f"Predicted Sale Price: AED {predicted_price[0]:,.2f}")
 - **Overall**: Strong accuracy for Building and Unit types, acceptable for Land
 
 ### Sales Market Models
-- **Best Performer**: Building (10.65% MAPE)
-- **Worst Performer**: Land (45.04% MAPE)
-- **Overall**: Strong performance across most property types
+- **Best Performer**: Building (168,324 AED MAE, 10.76% MAPE with additional features)
+- **Worst Performer**: Land (2,034,784 AED MAE, 43.40% MAPE with additional features)
+- **Overall**: Strong performance across most property types, Land remains challenging
 
 ### Key Findings
 1. Additional external features provided marginal improvement (1-2% MAPE reduction)
